@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SpaceshipList</title>
     <link rel="stylesheet" href="/style.css">
+
 </head>
 <body>
 <div>
@@ -14,6 +15,7 @@
             <th>Spaceship Class:</th>
             <th>Spaceship is Actice?: </th>
         </tr>
+
         <tr data-th-each="datas:${spaceshiplist}">
             <td th:text="${datas.registrationCode}">Registration Code</td>
             <td th:text="${datas.name}">Name</td>
@@ -22,6 +24,7 @@
         </tr>
 
     </table>
+
     <a data-th-href="@{/serviceactive}">Check the list of all active ships</a>
 </div>
 </body>

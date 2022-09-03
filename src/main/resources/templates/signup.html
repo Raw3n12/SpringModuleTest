@@ -9,20 +9,25 @@
 <div id="container">
   <h1 class="form">User Registration</h1>
 </div>
+
 <div>
 
-  <form class="form" th:action="@{/registration-success}" method="post"
-        th:object="${user}">
+  <form class="form" th:action="@{/register}" method="post"
+        th:object="${officer}">
     <div>
       <input type="text" data-th-field="*{username}"placeholder="username">
     </div>
+
     <br>
+
     <div>
       <input type="password" data-th-field="*{password}" placeholder="password" required>
     </div>
     <div>
+
       <br>
       <button type="submit" >Register</button>
+
       <span>You are already registered? <a th:href="@{/login}">Please Log in here!</a></span>
     </div>
   </form>

@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Crew Info</title>
+    <title>List of Service Crew</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
 <div>
-    <table>
-        <tr>
-            <th>Crew name: :</th>
-            <th>Crew rank:</th>
+    <form method="get">
 
-        </tr>
-        <tr data-th-each="datas:${crew}">
-            <td th:text="${datas.crewName}">Name: </td>
-            <td th:text="${datas.crewRank}">Crew rank:  </td>
-        </tr>
-    </table>
+        Search in names: <input type="text" name="search">
+        <p><button class="send_button" type="submit">Search</button></p>
+
+    </form>
 </div>
+<div>
+    <table >
+        <tr>
+            <th>Name:</th>
+            <th>Rank:</th>
+            <th>On board of:</th>
 
+        </tr>
+        <tr data-th-each="datas:${listofCrew}">
+            <td th:text="${datas.crewName}"></td>
+            <td th:text="${datas.crewRank}"></td>
+            <td th:text="${datas.dutyShip}"></td>
+        </tr>
+
+    </table>
+    <div>
+
+        <button class="send_button" type="submit"><a data-th-href="@{/spaceshiplist}">List of All ships in fleet</a></button>
+        <br>
+        <button class="send_button" type="submit"><a data-th-href="@{/spaceshipisactive}">List all Active Ship(s)</a></button>
+        <br>
+        <button class="send_button" type="submit"><a data-th-href="@{/serviceactive}">List all service members</a></button>
+
+    </div>
+
+</div>
+</div>
+</body>
+</html>
 
 </body>
 
