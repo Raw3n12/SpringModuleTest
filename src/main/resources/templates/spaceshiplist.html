@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceshipList</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Registration Code:</th>
+            <th>Name:</th>
+            <th>Spaceship Class:</th>
+            <th>Spaceship is Actice?: </th>
+        </tr>
+        <tr data-th-each="datas:${spaceshiplist}">
+            <td th:text="${datas.registrationCode}">Registration Code</td>
+            <td th:text="${datas.name}">Name</td>
+            <td th:text="${datas.spaceShipClass}">Spaceship Class</td>
+            <td th:text="${datas.isActive}">Is Activce?</td>
+        </tr>
+
+    </table>
+    <a data-th-href="@{/serviceactive}">Check the list of all active ships</a>
+</div>
+</body>
+</html>
