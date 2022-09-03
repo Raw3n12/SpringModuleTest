@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class SpaceShipService {
 
-    private SpaceShipRepo spaceShipRepo;
+    private final SpaceShipRepo spaceShipRepo;
 
     @Autowired
     public SpaceShipService(SpaceShipRepo spaceShipRepo){

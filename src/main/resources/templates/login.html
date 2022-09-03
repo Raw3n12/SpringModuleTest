@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bejelentkezés</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -11,12 +11,14 @@
 
 <div id="container">
     <div class="form">
-        <h1>Bejelentkezés</h1>
-        <p data-th-if="${loginError}" class="error">Rossz adatok. Próbáld újra!</p>
+        <h1>Login</h1>
+        <p data-th-if="${loginError}" class="error">Wrong input, please try again!</p>
 
         <form class="form" data-th-action="@{/login}" method="post">
             <input type="text" data-th-name="username" placeholder="felhasználónév">
+            <br>
             <input type="password" data-th-name="password" placeholder="jelszó">
+            <br>
 
             <input class="send_button" type="submit" value="Bejelentkezés!">
         </form>

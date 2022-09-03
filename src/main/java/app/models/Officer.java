@@ -1,12 +1,21 @@
 package app.models;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
-public class Officer {
-
+@Entity
+public class Officer implements UserDetails {
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(unique = true)
     private String username;
 
     private String password;
@@ -21,6 +30,26 @@ public class Officer {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public boolean isEnable() {
         return workEnd == null;
     }
@@ -31,6 +60,11 @@ public class Officer {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     public String getPassword() {
